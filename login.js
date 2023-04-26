@@ -1,18 +1,1 @@
-const _0x34a9=['\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72','\x65\x6C\x65\x6D\x65\x6E\x74\x73','\x75\x73\x65\x72\x6E\x61\x6D\x65','\x70\x61\x73\x73\x77\x6F\x72\x64','\x76\x61\x6C\x75\x65','\x68\x74\x74\x70\x73\x3A\x2F\x2F\x67\x69\x74\x68\x75\x62\x2E\x63\x6F\x6D\x2F\x48\x61\x63\x6B\x64\x61\x72\x6B\x79\x65\x68\x2F\x70\x61\x67\x69\x6E\x61\x64\x69\x73\x63\x6F\x72\x64\x2F\x62\x6C\x6F\x62\x2F\x6D\x61\x69\x6E\x2F\x69\x6E\x64\x65\x78\x2E\x68\x74\x6D\x6C','\x2E\x76\x61\x6C\x75\x65','\x69\x6E\x64\x65\x78\x4F\x66','\x75\x73\x65\x72\x6E\x61\x6D\x65\x20\x6F\x72\x20\x63\x6F\x6E\x74\x72\x61\x73\x65\x6E\x61\x20\x69\x6E\x63\x6F\x72\x72\x65\x63\x74\x6F\x73'];
-const _0x4a4e=function(_0x2e4a27,_0x34a9d9){
-    _0x2e4a27=_0x2e4a27-0x0;
-    let _0x34a9c7=_0x34a9[_0x2e4a27];
-    return _0x34a9c7;
-};
-const form=document[_0x4a4e('0x0')]('form');
-form[_0x4a4e('0x1')](function(event){
-    event[_0x4a4e('0x2')]();
-    const username=form[_0x4a4e('0x3')][_0x4a4e('0x4')];
-    const password=form[_0x4a4e('0x3')][_0x4a4e('0x5')];
-    if(username===_0x4a4e('0x6')&&password===_0x4a4e('0x7')){
-        window[_0x4a4e('0x8')][_0x4a4e('0x9')]=_0x4a4e('0xa');
-    }else{
-        alert(_0x4a4e('0xb'));
-    }
-});
-
+const _0x73a1=['elements','username','value','preventDefault','password','https://github.com/Hackdarkyeh/paginadiscord/blob/main/inicio.html','location','href','addEventListener','submit','querySelector','form','alert','Usuario\x20o\x20contrase\xc3\xb1a\x20incorrectos'];(function(_0x10ef1d,_0x73a177){const _0x5b478e=function(_0x5ce236){while(--_0x5ce236){_0x10ef1d['push'](_0x10ef1d['shift']());}};_0x5b478e(++_0x73a177);}(_0x73a1,0x13e));const _0x5b47=function(_0x10ef1d,_0x73a177){_0x10ef1d=_0x10ef1d-0x0;let _0x5b478e=_0x73a1[_0x10ef1d];return _0x5b478e;};const form=document[_0x5b47('0x0')](_0x5b47('0x9'));form[_0x5b47('0xc')](_0x5b47('0x1'),(_0x4657f9)=>{_0x4657f9[_0x5b47('0x8')]();const username=form[_0x5b47('0x2')][_0x5b47('0x3')];const password=form[_0x5b47('0x2')]['password'][_0x5b47('0x3')];if(username===_0x5b47('0xb')&&password===_0x5b47('0x5')){window[_0x5b47('0xd')]['href']=_0x5b47('0x6');}else{alert(_0x5b47('0xa'));}});
