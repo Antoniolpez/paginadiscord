@@ -1,4 +1,4 @@
 AuthType Basic
 AuthName "Ingrese su usuario y contraseña"
-AuthUserFile loquesea.htpasswd
+AuthUserFile ./loquesea.htpasswd
 Require valid-user
