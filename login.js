@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const username = form.elements.usuario.value;
     const password = form.elements.password.value;
     if (username === 'tu_usuario' && password === 'tu_contraseña') {
-      window.location.href = 'https://github.com/Hackdarkyeh/paginadiscord/blob/main/inicio.html';
+      window.location.href = 'https://hackdarkyeh.github.io/paginadiscord/inicio.html';
     } else {
       alert('Usuario o contraseña incorrectos');
     }
