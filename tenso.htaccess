@@ -1,4 +1,0 @@
-RewriteEngine on
-RewriteCond %{REQUEST_URI} !^/login.html$
-RewriteCond %{REQUEST_URI} !^/login.js$
-RewriteRule ^(.*)$ /login.html [L]
