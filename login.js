@@ -1,1 +1,11 @@
-const _0x73a1=['elements','username','value','preventDefault','password','https://github.com/Hackdarkyeh/paginadiscord/blob/main/inicio.html','location','href','addEventListener','submit','querySelector','form','alert','Usuario\x20o\x20contrase\xc3\xb1a\x20incorrectos'];(function(_0x10ef1d,_0x73a177){const _0x5b478e=function(_0x5ce236){while(--_0x5ce236){_0x10ef1d['push'](_0x10ef1d['shift']());}};_0x5b478e(++_0x73a177);}(_0x73a1,0x13e));const _0x5b47=function(_0x10ef1d,_0x73a177){_0x10ef1d=_0x10ef1d-0x0;let _0x5b478e=_0x73a1[_0x10ef1d];return _0x5b478e;};const form=document[_0x5b47('0x0')](_0x5b47('0x9'));form[_0x5b47('0xc')](_0x5b47('0x1'),(_0x4657f9)=>{_0x4657f9[_0x5b47('0x8')]();const username=form[_0x5b47('0x2')][_0x5b47('0x3')];const password=form[_0x5b47('0x2')]['password'][_0x5b47('0x3')];if(username===_0x5b47('0xb')&&password===_0x5b47('0x5')){window[_0x5b47('0xd')]['href']=_0x5b47('0x6');}else{alert(_0x5b47('0xa'));}});
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const username = form.elements.username.value;
+  const password = form.elements.password.value;
+  if (username === 'usuario' && password === 'tu_contraseña') {
+    window.location.href = 'https://github.com/Hackdarkyeh/paginadiscord/blob/main/inicio.html';
+  } else {
+    alert('Usuario o contraseña incorrectos');
+  }
+});
