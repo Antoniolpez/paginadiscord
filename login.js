@@ -1,11 +1,18 @@
-const form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const username = form.elements.username.value;
-  const password = form.elements.password.value;
-  if (username === 'tu_usuario' && password === 'tu_contraseña') {
-    window.location.href = 'https://tusitio.github.io/pagina-secreta';
-  } else {
-    alert('Usuario o contraseña incorrectos');
-  }
+const _0x34a9=['\x71\x75\x65\x72\x79\x53\x65\x6C\x65\x63\x74\x6F\x72','\x65\x6C\x65\x6D\x65\x6E\x74\x73','\x75\x73\x65\x72\x6E\x61\x6D\x65','\x70\x61\x73\x73\x77\x6F\x72\x64','\x76\x61\x6C\x75\x65','\x68\x74\x74\x70\x73\x3A\x2F\x2F\x67\x69\x74\x68\x75\x62\x2E\x63\x6F\x6D\x2F\x48\x61\x63\x6B\x64\x61\x72\x6B\x79\x65\x68\x2F\x70\x61\x67\x69\x6E\x61\x64\x69\x73\x63\x6F\x72\x64\x2F\x62\x6C\x6F\x62\x2F\x6D\x61\x69\x6E\x2F\x69\x6E\x64\x65\x78\x2E\x68\x74\x6D\x6C','\x2E\x76\x61\x6C\x75\x65','\x69\x6E\x64\x65\x78\x4F\x66','\x75\x73\x65\x72\x6E\x61\x6D\x65\x20\x6F\x72\x20\x63\x6F\x6E\x74\x72\x61\x73\x65\x6E\x61\x20\x69\x6E\x63\x6F\x72\x72\x65\x63\x74\x6F\x73'];
+const _0x4a4e=function(_0x2e4a27,_0x34a9d9){
+    _0x2e4a27=_0x2e4a27-0x0;
+    let _0x34a9c7=_0x34a9[_0x2e4a27];
+    return _0x34a9c7;
+};
+const form=document[_0x4a4e('0x0')]('form');
+form[_0x4a4e('0x1')](function(event){
+    event[_0x4a4e('0x2')]();
+    const username=form[_0x4a4e('0x3')][_0x4a4e('0x4')];
+    const password=form[_0x4a4e('0x3')][_0x4a4e('0x5')];
+    if(username===_0x4a4e('0x6')&&password===_0x4a4e('0x7')){
+        window[_0x4a4e('0x8')][_0x4a4e('0x9')]=_0x4a4e('0xa');
+    }else{
+        alert(_0x4a4e('0xb'));
+    }
 });
+
