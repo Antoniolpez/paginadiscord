@@ -1,56 +1,62 @@
 body {
-  background-image: url('https://picsum.photos/1200/800'); /* Cambiar por la URL de tu imagen */
+  background: url("https://source.unsplash.com/random/1920x1080") no-repeat center center fixed;
   background-size: cover;
-  background-position: center center;
-  font-family: Arial, sans-serif;
-  color: #fff;
-  text-align: center;
-}
-
-h1 {
-  font-size: 3em;
-  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 form {
-  display: inline-block;
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 2em;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
-label {
-  font-size: 1.2em;
-  display: block;
-  margin-top: 1em;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
 input[type="text"],
-input[type="password"] {
-  padding: 0.5em;
-  font-size: 1.2em;
-  width: 100%;
+input[type="password"],
+input[type="submit"] {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
   border: none;
   border-radius: 5px;
-  margin-bottom: 1em;
+  width: 100%;
+  max-width: 300px;
 }
 
 input[type="submit"] {
-  padding: 0.5em;
-  font-size: 1.2em;
-  background-color: #1e90ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #2E8B57;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 #mensaje {
-  margin-top: 2em;
+  margin-top: 20px;
+  text-align: center;
 }
 
 #tiempo-restante {
-  font-size: 1.2em;
+  display: inline-block;
+  margin: 0;
+  font-size: 18px;
   font-weight: bold;
 }
