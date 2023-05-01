@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   remainingTime--;
   if (remainingTime === 0) {
     unlockForm();
+    clearInterval(intervalId);
     attempts = 0; // Reinicia el número de intentos
   } else if (remainingTime < 0) {
     remainingTime = 0;
