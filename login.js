@@ -14,7 +14,7 @@ const lockForm = () => {
 clearInterval(intervalId);
 usernameInput.disabled = true;
 passwordInput.disabled = true;
-message.innerText = Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.;
+message.innerText = 'Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.';
 message.style.display = 'block';
 localStorage.setItem('locked', true);
 localStorage.setItem('remainingTime', remainingTime);
@@ -35,7 +35,7 @@ remainingTime--;
 if (remainingTime <= 0) {
 unlockForm();
 } else {
-message.innerText = Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.;
+message.innerText = `Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.`;
 localStorage.setItem('remainingTime', remainingTime);
 }
 };
@@ -43,13 +43,13 @@ localStorage.setItem('remainingTime', remainingTime);
 const startTimer = () => {
 intervalId = setInterval(updateTimer, 1000);
 message.style.display = 'block';
-message.innerText = Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.;
+message.innerText = `Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.`;
 };
 
 const formatTime = (time) => {
 const minutes = Math.floor(time / 60).toString().padStart(2, '0');
 const seconds = (time % 60).toString().padStart(2, '0');
-return ${minutes}:${seconds};
+return `${minutes}:${seconds}`;
 };
 
 const handleSubmit = (event) => {
