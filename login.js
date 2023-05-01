@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
     form.elements.usuario.disabled = true;
     form.elements.password.disabled = true;
     tiempoRestante.style.display = 'block';
-    const tiempoRestanteTexto = contador.innerText;
+    const tiempoRestanteTexto = `${Math.floor(tiempo / 60).toString().padStart(2, '0')}:${(tiempo % 60).toString().padStart(2, '0')}`;
     localStorage.setItem('bloqueado', true);
     localStorage.setItem('tiempoRestante', tiempo);
     mensaje.innerText = `Demasiados intentos fallidos. Por favor, espere ${tiempoRestanteTexto} antes de volver a intentarlo.`;
-    
-  };
+};
+
 
   const desbloquearFormulario = () => {
     form.elements.usuario.disabled = false;
