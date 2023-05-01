@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const unlockForm = () => {
     usernameInput.disabled = false;
     passwordInput.disabled = false;
+    attempts = 0;
     message.innerText = '';
     message.style.display = 'none';
     clearInterval(intervalId);
