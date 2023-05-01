@@ -36,12 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
   remainingTime--;
   if (remainingTime === 0) {
     unlockForm();
-    clearInterval(intervalId);
-  } else if (remainingTime > 0) {
+    attempts = 0; // Reinicia el número de intentos
+  } else if (remainingTime < 0) {
+    remainingTime = 0;
+    unlockForm();
+  } else {
     message.innerText = `Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.`;
     localStorage.setItem('remainingTime', remainingTime);
   }
 };
+
 
   const startTimer = () => {
   intervalId = setInterval(updateTimer, 1000);
