@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
       intentos++;
       if (intentos >= 3) {
         bloquearFormulario();
-        contarTiempo();
       } else {
         alert('Usuario o contraseña incorrectos, intentelo de nuevo');
       }
