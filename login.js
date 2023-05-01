@@ -43,9 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const iniciarContador = () => {
-    tiempo = localStorage.getItem('tiempoRestante') || 300;
+  tiempo = localStorage.getItem('tiempoRestante') || 300;
+  if (tiempo > 0) {
     intervalo = setInterval(contarTiempo, 1000);
-  };
+    const minutos = Math.floor(tiempo / 60).toString().padStart(2, '0');
+    const segundos = (tiempo % 60).toString().padStart(2, '0');
+    contador.innerText = `${minutos}:${segundos}`;
+    tiempoRestante.style.display = 'block';
+  } else {
+    desbloquearFormulario();
+  }
+};
+
 
   if (localStorage.getItem('bloqueado')) {
     bloquearFormulario();
