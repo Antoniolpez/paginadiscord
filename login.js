@@ -41,10 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const startTimer = () => {
-    intervalId = setInterval(updateTimer, 1000);
+  intervalId = setInterval(updateTimer, 1000);
+  if (remainingTime > 0) {
     message.style.display = 'block';
     message.innerText = `Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.`;
-  };
+  } else {
+    unlockForm();
+    return;
+  }
+};
+
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60).toString().padStart(2, '0');
