@@ -1,0 +1,56 @@
+body {
+  background-image: url('https://picsum.photos/1200/800'); /* Cambiar por la URL de tu imagen */
+  background-size: cover;
+  background-position: center center;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 1em;
+}
+
+form {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+label {
+  font-size: 1.2em;
+  display: block;
+  margin-top: 1em;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 0.5em;
+  font-size: 1.2em;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+input[type="submit"] {
+  padding: 0.5em;
+  font-size: 1.2em;
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#mensaje {
+  margin-top: 2em;
+}
+
+#tiempo-restante {
+  font-size: 1.2em;
+  font-weight: bold;
+}
