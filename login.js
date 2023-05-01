@@ -1,83 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
-  let intentos = 0;
-  let tiempo = 0;
-  let intervalo = null;
-  const mensaje = document.querySelector('#mensaje');
-  const contador = document.createElement('span');
-  contador.innerText = '00:00';
-  mensaje.appendChild(contador);
-  const tiempoRestante = document.querySelector('#tiempo-restante');
+const form = document.querySelector('form');
+const message = document.querySelector('#mensaje');
+const usernameInput = form.elements.usuario;
+const passwordInput = form.elements.password;
+const MAX_ATTEMPTS = 3;
+const LOCK_TIME = 300; // in seconds
 
-  const bloquearFormulario = () => {
-    clearInterval(intervalo);
-    form.elements.usuario.disabled = true;
-    form.elements.password.disabled = true;
-    tiempoRestante.style.display = 'block';
-    const tiempoRestanteTexto = `${Math.floor(tiempo / 60).toString().padStart(2, '0')}:${(tiempo % 60).toString().padStart(2, '0')}`;
-    localStorage.setItem('bloqueado', true);
-    localStorage.setItem('tiempoRestante', tiempo);
-    mensaje.innerText = `Demasiados intentos fallidos. Por favor, espere ${tiempoRestanteTexto} antes de volver a intentarlo.`;
+let attempts = 0;
+let remainingTime = localStorage.getItem('remainingTime') || LOCK_TIME;
+let intervalId = null;
+
+const lockForm = () => {
+clearInterval(intervalId);
+usernameInput.disabled = true;
+passwordInput.disabled = true;
+message.innerText = Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.;
+message.style.display = 'block';
+localStorage.setItem('locked', true);
+localStorage.setItem('remainingTime', remainingTime);
 };
 
-
-  const desbloquearFormulario = () => {
-    form.elements.usuario.disabled = false;
-    form.elements.password.disabled = false;
-    contador.innerText = '';
-    mensaje.innerText = '';
-    tiempoRestante.style.display = 'none';
-    localStorage.removeItem('bloqueado');
-    localStorage.removeItem('tiempoRestante');
-  };
-
-  const contarTiempo = () => {
-  tiempo--;
-  if (tiempo <= 0) {
-    desbloquearFormulario();
-  } else {
-    const minutos = Math.floor(tiempo / 60).toString().padStart(2, '0');
-    const segundos = (tiempo % 60).toString().padStart(2, '0');
-    contador.innerText = `${minutos}:${segundos}`;
-    const tiempoRestanteTexto = `${minutos}:${segundos}`;
-    localStorage.setItem('tiempoRestante', tiempo);
-    mensaje.innerText = `Demasiados intentos fallidos. Por favor, espere ${tiempoRestanteTexto} antes de volver a intentarlo.`;
-  }
+const unlockForm = () => {
+usernameInput.disabled = false;
+passwordInput.disabled = false;
+message.innerText = '';
+message.style.display = 'none';
+clearInterval(intervalId);
+localStorage.removeItem('locked');
+localStorage.removeItem('remainingTime');
 };
 
-
-  const iniciarContador = () => {
-  tiempo = localStorage.getItem('tiempoRestante') || 300;
-  if (tiempo > 0) {
-    intervalo = setInterval(contarTiempo, 1000);
-    const minutos = Math.floor(tiempo / 60).toString().padStart(2, '0');
-    const segundos = (tiempo % 60).toString().padStart(2, '0');
-    contador.innerText = `${minutos}:${segundos}`;
-    tiempoRestante.style.display = 'block';
-  } else {
-    desbloquearFormulario();
-  }
+const updateTimer = () => {
+remainingTime--;
+if (remainingTime <= 0) {
+unlockForm();
+} else {
+message.innerText = Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.;
+localStorage.setItem('remainingTime', remainingTime);
+}
 };
 
+const startTimer = () => {
+intervalId = setInterval(updateTimer, 1000);
+message.style.display = 'block';
+message.innerText = Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.;
+};
 
-  if (localStorage.getItem('bloqueado')) {
-    bloquearFormulario();
-    iniciarContador();
-  }
+const formatTime = (time) => {
+const minutes = Math.floor(time / 60).toString().padStart(2, '0');
+const seconds = (time % 60).toString().padStart(2, '0');
+return ${minutes}:${seconds};
+};
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const username = form.elements.usuario.value;
-    const password = form.elements.password.value;
-    if (username === 'tu_usuario' && password === 'tu_contraseña') {
-      window.location.href = 'https://hackdarkyeh.github.io/paginadiscord/inicio.html';
-    } else {
-      intentos++;
-      if (intentos >= 3) {
-        bloquearFormulario();
-      } else {
-        alert('Usuario o contraseña incorrectos, intentelo de nuevo');
-      }
-    }
-  });
+const handleSubmit = (event) => {
+event.preventDefault();
+const username = usernameInput.value;
+const password = passwordInput.value;
+if (username === 'tu_usuario' && password === 'tu_contraseña') {
+window.location.href = 'https://hackdarkyeh.github.io/paginadiscord/inicio.html';
+} else {
+attempts++;
+if (attempts >= MAX_ATTEMPTS) {
+lockForm();
+startTimer();
+} else {
+alert('Usuario o contraseña incorrectos, intentelo de nuevo');
+}
+}
+};
+
+if (localStorage.getItem('locked')) {
+lockForm();
+startTimer();
+}
+
+form.addEventListener('submit', handleSubmit);
 });
