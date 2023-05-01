@@ -53,22 +53,29 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const username = usernameInput.value;
-    const password = passwordInput.value;
-    if (username === 'tu_usuario' && password === 'tu_contraseña') {
-      window.location.href = 'https://hackdarkyeh.github.io/paginadiscord/inicio.html';
-    } else {
-      attempts++;
-      if (attempts >= MAX_ATTEMPTS) {
-        lockForm();
-        startTimer();
-        attempts = 0;
-      } else {
-        alert('Usuario o contraseña incorrectos, intentelo de nuevo');
-      }
-    }
-  };
+   event.preventDefault();
+   const username = usernameInput.value;
+   const password = passwordInput.value;
+   if (username === 'tu_usuario' && password === 'tu_contraseña') {
+     window.location.href = 'https://hackdarkyeh.github.io/paginadiscord/inicio.html';
+   } else {
+     attempts++;
+     if (attempts >= MAX_ATTEMPTS) {
+       lockForm();
+       if (!localStorage.getItem('locked')) {
+         localStorage.setItem('locked', true);
+         localStorage.setItem('remainingTime', LOCK_TIME);
+         startTimer();
+       } else {
+         remainingTime = localStorage.getItem('remainingTime');
+         startTimer();
+       }
+     } else {
+       alert('Usuario o contraseña incorrectos, intentelo de nuevo');
+     }
+   }
+ };
+
 
   if (localStorage.getItem('locked')) {
     remainingTime = localStorage.getItem('remainingTime');
