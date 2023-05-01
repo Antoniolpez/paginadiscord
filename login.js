@@ -9,15 +9,45 @@ document.addEventListener('DOMContentLoaded', () => {
   mensaje.appendChild(contador);
   const tiempoRestante = document.querySelector('#tiempo-restante');
 
-  // Verifica si el usuario está bloqueado
-  if (localStorage.getItem('bloqueado') === 'true') {
+  const bloquearFormulario = () => {
+    clearInterval(intervalo);
     form.elements.usuario.disabled = true;
     form.elements.password.disabled = true;
     tiempoRestante.style.display = 'block';
-    const tiempoRestanteTexto = localStorage.getItem('tiempoRestante');
-    contador.innerText = tiempoRestanteTexto;
+    const tiempoRestanteTexto = contador.innerText;
     mensaje.innerText = `Demasiados intentos fallidos. Por favor, espere ${tiempoRestanteTexto} antes de volver a intentarlo.`;
-    tiempo = parseInt(localStorage.getItem('tiempo'));
+    localStorage.setItem('bloqueado', true);
+    localStorage.setItem('tiempoRestante', tiempo);
+  };
+
+  const desbloquearFormulario = () => {
+    form.elements.usuario.disabled = false;
+    form.elements.password.disabled = false;
+    contador.innerText = '';
+    mensaje.innerText = '';
+    tiempoRestante.style.display = 'none';
+    localStorage.removeItem('bloqueado');
+    localStorage.removeItem('tiempoRestante');
+  };
+
+  const contarTiempo = () => {
+    tiempo--;
+    if (tiempo <= 0) {
+      desbloquearFormulario();
+    } else {
+      const minutos = Math.floor(tiempo / 60).toString().padStart(2, '0');
+      const segundos = (tiempo % 60).toString().padStart(2, '0');
+      contador.innerText = `${minutos}:${segundos}`;
+    }
+  };
+
+  const iniciarContador = () => {
+    tiempo = localStorage.getItem('tiempoRestante') || 300;
+    intervalo = setInterval(contarTiempo, 1000);
+  };
+
+  if (localStorage.getItem('bloqueado')) {
+    bloquearFormulario();
     iniciarContador();
   }
 
@@ -30,49 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       intentos++;
       if (intentos >= 3) {
-        clearInterval(intervalo);
-        form.elements.usuario.disabled = true;
-        form.elements.password.disabled = true;
-        tiempoRestante.style.display = 'block';
-        const tiempoRestanteTexto = contador.innerText;
-        mensaje.innerText = `Demasiados intentos fallidos. Por favor, espere ${tiempoRestanteTexto} antes de volver a intentarlo.`;
-        // Guarda el estado del bloqueo en localStorage
-        localStorage.setItem('bloqueado', 'true');
-        localStorage.setItem('tiempoRestante', tiempoRestanteTexto);
-        localStorage.setItem('tiempo', tiempo);
-        return;
+        bloquearFormulario();
+      } else {
+        alert('Usuario o contraseña incorrectos, intentelo de nuevo');
       }
-      alert('Usuario o contraseña incorrectos, intentelo de nuevo');
     }
   });
-
-  const contarTiempo = () => {
-    tiempo--;
-    if (tiempo <= 0) {
-      clearInterval(intervalo);
-      form.elements.usuario.disabled = false;
-      form.elements.password.disabled = false;
-      contador.innerText = '';
-      mensaje.innerText = '';
-      tiempoRestante.style.display = 'none';
-      // Borra el estado del bloqueo en localStorage
-      localStorage.removeItem('bloqueado');
-      localStorage.removeItem('tiempoRestante');
-      localStorage.removeItem('tiempo');
-    } else {
-      const minutos = Math.floor(tiempo / 60).toString().padStart(2, '0');
-      const segundos = (tiempo % 60).toString().padStart(2, '0');
-      contador.innerText = `${minutos}:${segundos}`;
-    }
-  };
-
-  const iniciarContador = () => {
-    intervalo = setInterval(contarTiempo, 1000);
-  };
-
-  // Inicia el contador solo si el usuario no está bloqueado
-  if (!localStorage.getItem('bloqueado')) {
-    tiempo = 300;
-    iniciarContador();
-  }
 });
