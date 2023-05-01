@@ -32,15 +32,19 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const contarTiempo = () => {
-    tiempo--;
-    if (tiempo <= 0) {
-      desbloquearFormulario();
-    } else {
-      const minutos = Math.floor(tiempo / 60).toString().padStart(2, '0');
-      const segundos = (tiempo % 60).toString().padStart(2, '0');
-      contador.innerText = `${minutos}:${segundos}`;
-    }
-  };
+  tiempo--;
+  if (tiempo <= 0) {
+    desbloquearFormulario();
+  } else {
+    const minutos = Math.floor(tiempo / 60).toString().padStart(2, '0');
+    const segundos = (tiempo % 60).toString().padStart(2, '0');
+    contador.innerText = `${minutos}:${segundos}`;
+    const tiempoRestanteTexto = `${minutos}:${segundos}`;
+    localStorage.setItem('tiempoRestante', tiempo);
+    mensaje.innerText = `Demasiados intentos fallidos. Por favor, espere ${tiempoRestanteTexto} antes de volver a intentarlo.`;
+  }
+};
+
 
   const iniciarContador = () => {
   tiempo = localStorage.getItem('tiempoRestante') || 300;
