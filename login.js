@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let intentos = 0;
     let tiempo = 0;
     let intervalo = null;
-    const form = document.querySelector('form');
     const mensaje = document.querySelector('#mensaje');
     const contador = document.createElement('span');
     contador.innerText = '00:00';
