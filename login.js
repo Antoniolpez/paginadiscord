@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     message.innerText = `Demasiados intentos fallidos. Por favor, espere ${formatTime(remainingTime)} antes de volver a intentarlo.`;
     message.style.display = 'block';
     localStorage.setItem('locked', true);
+    remainingTime = LOCK_TIME;
     localStorage.setItem('remainingTime', remainingTime);
   };
 
