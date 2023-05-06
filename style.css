@@ -1,7 +1,6 @@
 /* Fuente predeterminada */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
   color: #333;
 }
 
@@ -10,8 +9,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  color: #f5f5f5;
+  background-color: #eee;
+  color: #333;
   padding: 10px 20px;
 }
 
@@ -31,7 +30,7 @@ header nav li {
 }
 
 header nav a {
-  color: #f5f5f5;
+  color: #333;
   text-decoration: none;
 }
 
@@ -43,33 +42,19 @@ header nav a:hover {
 section {
   padding: 20px;
   margin: 20px 0;
+  border: 1px solid #ddd;
   background-color: #fff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
 section h2 {
   margin-top: 0;
-  color: #333;
-}
-
-/* Botones */
-button {
-  border: none;
-  border-radius: 4px;
-  padding: 10px;
-  color: #f5f5f5;
-  background-color: #333;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #666;
 }
 
 /* Pie de página */
 footer {
-  background-color: #333;
-  color: #f5f5f5;
+  background-color: #eee;
+  color: #333;
   padding: 10px 20px;
   text-align: center;
 }
@@ -80,7 +65,7 @@ nav li {
 }
 
 nav li a {
-  color: #f5f5f5;
+  color: #333;
   font-size: 18px;
   text-decoration: none;
   animation: parpadeo 2s ease-in-out infinite;
