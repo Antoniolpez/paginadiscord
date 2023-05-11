@@ -9,6 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
   let attempts = 0;
   let remainingTime = localStorage.getItem('remainingTime') || LOCK_TIME;
   let intervalId = null;
+  // Selecciona el botón de cambio de tema
+  const toggleThemeButton = document.querySelector('.toggle-theme');
+
+  // Escucha el evento click en el botón
+  toggleThemeButton.addEventListener('click', function() {
+    // Selecciona el elemento body
+    const body = document.querySelector('body');
+
+    // Si el body tiene la clase 'dark-theme', remuévela, y viceversa
+    if (body.classList.contains('dark-theme')) {
+      body.classList.remove('dark-theme');
+    } else {
+      body.classList.add('dark-theme');
+    }
+  });
 
   const lockForm = () => {
     clearInterval(intervalId);
