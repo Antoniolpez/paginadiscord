@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       body.classList.add('dark-theme');
     }
+    
   });
 
   const lockForm = () => {
