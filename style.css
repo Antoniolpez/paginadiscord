@@ -1,22 +1,42 @@
-/* Fuente predeterminada */
 body {
   font-family: "Open Sans", sans-serif;
-  color: #fff;
-  background-color: #222;
+  color: #eee;
+  background-color: #202020;
 }
 
 /* Encabezado */
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #111;
   color: #fff;
+  padding: 20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-  color: #fff;
+  margin: 0;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav li {
+  margin: 0 20px;
 }
 
 header nav a {
   color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 header nav a:hover {
@@ -25,45 +45,52 @@ header nav a:hover {
 
 /* Secciones */
 section {
-  background-color: #333;
-  color: #fff;
+  padding: 40px 20px;
+  margin: 40px 0;
+  background-color: #202020;
+  color: #eee;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 section h2 {
+  margin-top: 0;
+  font-size: 24px;
+  text-transform: uppercase;
   color: #0077b6;
+  margin-bottom: 20px;
 }
 
 /* Pie de página */
 footer {
   background-color: #111;
   color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
 }
 
 nav li a {
   color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  animation: parpadeo 2s ease-in-out infinite;
 }
 
-/* Botón de cambio de tema */
-.toggle-theme {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  background-color: #fff;
-  color: #222;
-  border-radius: 50%;
-  font-size: 24px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.toggle-theme:hover {
-  background-color: #0077b6;
-  color: #fff;
+@keyframes parpadeo {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Media queries */
