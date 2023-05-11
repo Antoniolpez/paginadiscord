@@ -110,6 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
     lockForm();
     startTimer();
   }
+ // Escucha el evento click en el botón
+  toggleThemeButton.addEventListener('click', function() {
+    // Selecciona el elemento body
+    const body = document.querySelector('body');
 
+    // Si el body tiene la clase 'dark-theme', remuévela, y viceversa
+    if (body.classList.contains('dark-theme')) {
+      body.classList.remove('dark-theme');
+    } else {
+      body.classList.add('dark-theme');
+    }
+  });
   form.addEventListener('submit', handleSubmit);
 });
