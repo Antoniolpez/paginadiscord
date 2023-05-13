@@ -126,38 +126,6 @@ nav li a {
 
 
 
-/* Define la animación */
-@keyframes blink-animation {
-  50% {
-    background-color: #fff; /* Si el tema es oscuro, parpadea en claro */
-  }
-}
-
-/* Agrega el estilo normal del botón */
-.toggle-theme {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  margin: 10px;
-  outline: none;
-  padding: 10px;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Agrega el estilo del botón cuando el cursor está encima */
-.toggle-theme:hover {
-  /* Agrega la clase 'blink' para aplicar la animación */
-  animation: blink-animation 1s infinite;
-}
-
-
-
-
-
-
-
-
 
 
 
