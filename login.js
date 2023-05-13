@@ -104,12 +104,12 @@ themeToggle.addEventListener('click', function() {
   if (body.classList.contains('dark-theme')) {
     body.classList.remove('dark-theme');
     body.classList.add('light-theme');
-    themeLink.href = 'light-theme.css';
+    themeLink.href = 'styleclaro.css';
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
   } else if (body.classList.contains('light-theme')) {
     body.classList.remove('light-theme');
     body.classList.add('dark-theme');
-    themeLink.href = 'dark-theme.css';
+    themeLink.href = 'style.css';
     themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
   } else {
     body.classList.add('dark-theme');
