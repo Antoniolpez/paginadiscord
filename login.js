@@ -96,13 +96,23 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer();
   }
   
- const themeToggle = document.getElementById('theme-toggle');
+ const themeToggle = document.querySelector('.toggle-theme');
 const body = document.body;
 
 themeToggle.addEventListener('click', function() {
-  body.classList.toggle('dark-theme');
-  themeToggle.classList.toggle('dark-theme');
+  if (body.classList.contains('dark-theme')) {
+    body.classList.remove('dark-theme');
+    body.classList.add('light-theme');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  } else if (body.classList.contains('light-theme')) {
+    body.classList.remove('light-theme');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  } else {
+    body.classList.add('dark-theme');
+    themeToggle.innerHTML = '<i class="fas fa-adjust"></i>';
+  }
 });
+
 
 
   form.addEventListener('submit', handleSubmit);
