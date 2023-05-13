@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('theme-style-dark').disabled = false;
       }
     }
-    let toggleSwitch = document.getElementById('toggleSwitch');
     if (toggleSwitch) {
       toggleSwitch.addEventListener('change', switchTheme, false);
     } else {
