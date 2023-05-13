@@ -98,17 +98,22 @@ document.addEventListener('DOMContentLoaded', () => {
   
  const themeToggle = document.querySelector('.toggle-theme');
 const body = document.body;
+const themeLink = document.querySelector('#theme-link');
 
 themeToggle.addEventListener('click', function() {
   if (body.classList.contains('dark-theme')) {
     body.classList.remove('dark-theme');
     body.classList.add('light-theme');
+    themeLink.href = 'light-theme.css';
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
   } else if (body.classList.contains('light-theme')) {
     body.classList.remove('light-theme');
+    body.classList.add('dark-theme');
+    themeLink.href = 'dark-theme.css';
     themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
   } else {
     body.classList.add('dark-theme');
+    themeLink.disabled = false;
     themeToggle.innerHTML = '<i class="fas fa-adjust"></i>';
   }
 });
