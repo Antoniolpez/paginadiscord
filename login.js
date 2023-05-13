@@ -96,28 +96,17 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer();
   }
   
- const themeToggle = document.querySelector('.toggle-theme');
-const body = document.body;
-const themeLink = document.querySelector('#theme-link');
-
-themeToggle.addEventListener('click', function() {
-  if (body.classList.contains('dark-theme')) {
-    body.classList.remove('dark-theme');
-    body.classList.add('light-theme');
-    themeLink.href = 'styleclaro.css';
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-  } else if (body.classList.contains('light-theme')) {
-    body.classList.remove('light-theme');
-    body.classList.add('dark-theme');
-    themeLink.href = 'style.css';
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-  } else {
-    body.classList.add('dark-theme');
-    themeLink.disabled = false;
-    themeToggle.innerHTML = '<i class="fas fa-adjust"></i>';
-  }
-});
-
+ window.addEventListener('load', function() {
+      var boton = document.getElementById('boton-cambiar-estilo');
+      var estilo = document.getElementById('estilo');
+      boton.addEventListener('click', function() {
+        if (estilo.getAttribute('href') === 'style.css') {
+          estilo.setAttribute('href', 'styleclaro.css');
+        } else {
+          estilo.setAttribute('href', 'style.css');
+        }
+      });
+    });
 
 
   form.addEventListener('submit', handleSubmit);
