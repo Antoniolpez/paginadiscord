@@ -2,6 +2,8 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #eee;
   background-color: #202020;
+  transition: color 0.5s, background-color 0.5s, border-color 0.5s;
+
 }
 
 /* Encabezado */
