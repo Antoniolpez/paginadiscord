@@ -97,24 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
 
-  // Obtenemos el botón y la hoja de estilos
-const toggleButton = document.querySelector('.toggle-theme');
-const styleSheet = document.querySelector('#stylesheet');
+function toggleTheme() {
+	var theme = document.getElementById("theme");
+	if (theme.getAttribute("href") == "light.css") {
+		theme.setAttribute("href", "dark.css");
+	} else {
+		theme.setAttribute("href", "light.css");
+	}
+}
 
-// Agregamos un evento click al botón
-toggleButton.addEventListener('click', function() {
-  // Obtenemos el nombre de la hoja de estilos actual
-  const currentStyleSheet = styleSheet.getAttribute('href');
-  
-  // Verificamos si es la hoja de estilos clara
-  if (currentStyleSheet === 'styleclaro.css') {
-    // Si es la hoja de estilos clara, cambiamos a la hoja de estilos oscura
-    styleSheet.setAttribute('href', 'style.css');
-  } else {
-    // Si es la hoja de estilos oscura, cambiamos a la hoja de estilos clara
-    styleSheet.setAttribute('href', 'styleclaro.css');
-  }
-});
 
 
 
