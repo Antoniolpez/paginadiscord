@@ -96,39 +96,33 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer();
   }
   
-  const toggleSwitch = document.querySelector('.toggle-theme input[type="checkbox"]');
-    const currentTheme = localStorage.getItem('theme');
-    
-    if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
-      
-      if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
-        document.getElementById('theme-style').disabled = true;
-        document.getElementById('theme-style-dark').disabled = false;
-      }
-    }
-    if (toggleSwitch) {
-      toggleSwitch.addEventListener('change', switchTheme, false);
-    } else {
-      console.log('El elemento toggleSwitch no se ha encontrado en la página');
-    }
+  const toggleTheme = document.querySelector('.toggle-theme');
+const currentTheme = localStorage.getItem('theme');
 
-    function switchTheme(e) {
-      if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        document.getElementById('theme-style').disabled = true;
-        document.getElementById('theme-style-dark').disabled = false;
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        document.getElementById('theme-style').disabled = false;
-        document.getElementById('theme-style-dark').disabled = true;
-      }
-    }
-    
-    toggleSwitch.addEventListener('change', switchTheme, false);
+if (currentTheme) {
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  if (currentTheme === 'dark') {
+    toggleTheme.classList.add('dark-mode');
+  }
+}
+
+function switchTheme() {
+  const theme = document.documentElement.getAttribute('data-theme');
+
+  if (theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+    toggleTheme.classList.remove('dark-mode');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+    toggleTheme.classList.add('dark-mode');
+  }
+}
+
+toggleTheme.addEventListener('click', switchTheme);
+
 
   form.addEventListener('submit', handleSubmit);
 });
