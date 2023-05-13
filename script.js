@@ -1,8 +1,8 @@
-// Obtiene el botón por su ID
-var toggleButton = document.getElementById("toggleButton");
-
-// Agrega un manejador de eventos para el evento clic
-toggleButton.addEventListener("click", toggleTheme);
+document.addEventListener("DOMContentLoaded", function() {
+  // Tu código aquí
+  var toggleButton = document.getElementById("toggleButton");
+  toggleButton.addEventListener("click", toggleTheme);
+});
 
 
 function toggleTheme() {
