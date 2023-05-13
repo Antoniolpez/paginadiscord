@@ -1,12 +1,12 @@
 /* Fuente predeterminada */
-body.light-theme {
+body {
   font-family: "Open Sans", sans-serif;
   color: #444;
   background-color: #f2f2f2;
 }
 
 /* Encabezado */
-header.light-theme {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,36 +16,36 @@ header.light-theme {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-header.light-theme h1 {
+header h1 {
   margin: 0;
   font-size: 28px;
   text-transform: uppercase;
 }
 
-header.light-theme nav ul {
+header nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
 
-header.light-theme nav li {
+header nav li {
   margin: 0 20px;
 }
 
-header.light-theme nav a {
+header nav a {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
 }
 
-header.light-theme nav a:hover {
+header nav a:hover {
   color: #0077b6;
 }
 
 /* Secciones */
-section.light-theme {
+section {
   padding: 40px 20px;
   margin: 40px 0;
   background-color: #f2f2f2;
@@ -53,7 +53,7 @@ section.light-theme {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-section.light-theme h2 {
+section h2 {
   margin-top: 0;
   font-size: 24px;
   text-transform: uppercase;
@@ -62,7 +62,7 @@ section.light-theme h2 {
 }
 
 /* Pie de página */
-footer.light-theme {
+footer {
   background-color: #272727;
   color: #fff;
   padding: 20px;
@@ -70,12 +70,12 @@ footer.light-theme {
   box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.1);
 }
 
-nav.light-theme li {
+nav li {
   display: inline-block;
   margin-right: 20px;
 }
 
-nav.light-theme li a {
+nav li a {
   color: #fff;
   font-size: 18px;
   text-decoration: none;
