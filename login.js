@@ -108,7 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('theme-style-dark').disabled = false;
       }
     }
-    
+    let toggleSwitch = document.getElementById('toggleSwitch');
+    if (toggleSwitch) {
+      toggleSwitch.addEventListener('change', switchTheme, false);
+    } else {
+      console.log('El elemento toggleSwitch no se ha encontrado en la página');
+    }
+
     function switchTheme(e) {
       if (e.target.checked) {
         document.documentElement.setAttribute('data-theme', 'dark');
