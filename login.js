@@ -96,17 +96,26 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer();
   }
   
- window.addEventListener('load', function() {
-      var boton = document.getElementById('boton-cambiar-estilo');
-      var estilo = document.getElementById('estilo');
-      boton.addEventListener('click', function() {
-        if (estilo.getAttribute('href') === 'style.css') {
-          estilo.setAttribute('href', 'styleclaro.css');
-        } else {
-          estilo.setAttribute('href', 'style.css');
-        }
-      });
-    });
+
+  // Obtenemos el botón y la hoja de estilos
+const toggleButton = document.querySelector('.toggle-theme');
+const styleSheet = document.querySelector('#stylesheet');
+
+// Agregamos un evento click al botón
+toggleButton.addEventListener('click', function() {
+  // Obtenemos el nombre de la hoja de estilos actual
+  const currentStyleSheet = styleSheet.getAttribute('href');
+  
+  // Verificamos si es la hoja de estilos clara
+  if (currentStyleSheet === 'styleclaro.css') {
+    // Si es la hoja de estilos clara, cambiamos a la hoja de estilos oscura
+    styleSheet.setAttribute('href', 'style.css');
+  } else {
+    // Si es la hoja de estilos oscura, cambiamos a la hoja de estilos clara
+    styleSheet.setAttribute('href', 'styleclaro.css');
+  }
+});
+
 
 
   form.addEventListener('submit', handleSubmit);
