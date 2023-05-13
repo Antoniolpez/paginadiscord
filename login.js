@@ -96,32 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer();
   }
   
-  const toggleTheme = document.querySelector('.toggle-theme');
-const currentTheme = localStorage.getItem('theme');
+ const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
-if (currentTheme) {
-  document.documentElement.setAttribute('data-theme', currentTheme);
-
-  if (currentTheme === 'dark') {
-    toggleTheme.classList.add('dark-mode');
-  }
-}
-
-function switchTheme() {
-  const theme = document.documentElement.getAttribute('data-theme');
-
-  if (theme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'light');
-    localStorage.setItem('theme', 'light');
-    toggleTheme.classList.remove('dark-mode');
-  } else {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
-    toggleTheme.classList.add('dark-mode');
-  }
-}
-
-toggleTheme.addEventListener('click', switchTheme);
+themeToggle.addEventListener('click', function() {
+  body.classList.toggle('dark-theme');
+  themeToggle.classList.toggle('dark-theme');
+});
 
 
   form.addEventListener('submit', handleSubmit);
