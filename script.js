@@ -1,15 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Tu código aquí
   var toggleButton = document.getElementById("toggleButton");
   toggleButton.addEventListener("click", toggleTheme);
+
+  // Restaurar el tema desde el almacenamiento local al cargar la página
+  var theme = localStorage.getItem("theme");
+  if (theme) {
+    var themeLink = document.getElementById("theme");
+    themeLink.setAttribute("href", theme);
+  }
 });
 
-
 function toggleTheme() {
-	var theme = document.getElementById("theme");
-	if (theme.getAttribute("href") == "light.css") {
-		theme.setAttribute("href", "dark.css");
-	} else {
-		theme.setAttribute("href", "light.css");
-	}
+  var themeLink = document.getElementById("theme");
+  var currentTheme = themeLink.getAttribute("href");
+  var newTheme = (currentTheme === "light.css") ? "dark.css" : "light.css";
+  themeLink.setAttribute("href", newTheme);
+  
+  // Guardar el tema actual en el almacenamiento local
+  localStorage.setItem("theme", newTheme);
 }
