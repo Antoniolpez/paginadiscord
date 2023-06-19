@@ -65,6 +65,9 @@ section h2 {
 
 /* Pie de página */
 footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
   background-color: #272727;
   color: #fff;
   padding: 20px;
