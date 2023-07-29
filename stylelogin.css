@@ -66,3 +66,8 @@ input[type="submit"]:hover {
     font-size: 2em;
   }
 }
+
+/* Agregar esta regla para centrar horizontalmente el formulario */
+form {
+  margin: 0 auto;
+}
