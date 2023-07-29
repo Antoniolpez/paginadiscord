@@ -9,6 +9,7 @@ body {
 h1 {
   font-size: 3em;
   justify-content: center;
+  align-items: center;
 }
 
 /* Agregar un contenedor para el formulario */
