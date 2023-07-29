@@ -10,14 +10,18 @@ h1 {
   font-size: 3em;
 }
 
+.formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 form {
-  display: inline-block;
   background-color: rgba(255, 255, 255, 0.7);
   padding: 2em;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  margin: 0 auto;
 }
 
 label {
@@ -67,4 +71,15 @@ input[type="submit"]:hover {
   }
 }
 
+/* Agregar esta regla para centrar horizontalmente el formulario */
+form {
+  text-align: center;
+}
 
+/* Agregar esta regla para centrar vertical y horizontalmente el formulario */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
