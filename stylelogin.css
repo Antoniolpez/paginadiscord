@@ -10,7 +10,8 @@ h1 {
   font-size: 3em;
 }
 
-.formulario {
+/* Agregar un contenedor para el formulario */
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,12 +75,4 @@ input[type="submit"]:hover {
 /* Agregar esta regla para centrar horizontalmente el formulario */
 form {
   text-align: center;
-}
-
-/* Agregar esta regla para centrar vertical y horizontalmente el formulario */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
