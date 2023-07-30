@@ -62,7 +62,11 @@ section h2 {
   color: #0077b6;
   margin-bottom: 20px;
 }
-
+.toggleButton{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 /* Pie de página */
 footer {
   width: 100%;
