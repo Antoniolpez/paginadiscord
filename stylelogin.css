@@ -12,6 +12,7 @@ h1 {
   font-size: 3em;
   text-align: center;
   margin: 0;
+  color: black;
 }
 
 /* Agregar un contenedor para el formulario y el mensaje */
@@ -64,6 +65,7 @@ input[type="submit"]:hover {
 
 #mensaje {
   text-align: center;
+  color: black;
 }
 
 #tiempo-restante {
